@@ -17,18 +17,29 @@ function Profile() {
         // console.log(profileJson);
 
         const repositories = await fetch(profileJson.repos_url);
-        const repoJson =repositories
+        const repoJson = await repositories.json();
+        // console.log(repoJson);
+
+        if(profileJson) {
+            setData(profileJson);
+            setRepositories(repoJson);
+        }
     }
   return (
     <div>
         <input
          type="text"
          value={username}
-         onChange={onChangeHandler} />
+         onChange={onChangeHandler}
+         placeholder='Search User' />
          <button
             onClick={submitHandler}
             type='submit'
          >Search</button>
+
+         <ul>
+             <li>{data.location}</li>
+         </ul>
     </div>
     );
 }
