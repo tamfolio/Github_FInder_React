@@ -1,11 +1,12 @@
 import './App.css';
 import Profile from './components/Profile';
+import Logo from './Logo.png'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>GitHub Logo</h1>
+        <img src={Logo} alt="" />
       </header>
       <Profile/>
     </div>
