@@ -2,7 +2,7 @@ import React, {useState}  from 'react';
 
 function Profile() {
     const[data, setData] = useState({});
-    const[username, setUsername] = useState({});
+    const[username, setUsername] = useState("");
     const[repositories, setRepositories] = useState({});
 
     const onChangeHandler = e => {
@@ -26,20 +26,19 @@ function Profile() {
         }
     }
   return (
-    <div>
+    <div className='git-container'>
         <input
-         type="text"
+         type="search"
+         name='Search-Bar'
          value={username}
          onChange={onChangeHandler}
-         placeholder='Search User' />
-         <button
+         placeholder='Search for a Github User' />
+         <button className='btn'
             onClick={submitHandler}
             type='submit'
-         >Search</button>
+         >Proceed</button>
 
-         <ul>
-             <li>{data.location}</li>
-         </ul>
+        
     </div>
     );
 }
